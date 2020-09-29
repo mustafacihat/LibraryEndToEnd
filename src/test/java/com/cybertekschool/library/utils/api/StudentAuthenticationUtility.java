@@ -23,7 +23,7 @@ public class StudentAuthenticationUtility implements AuthenticationUtility {
                     formParam("password", password).
                     log().all().
                 when().
-                    post(Endpoints.LOGIN).prettyPeek();
+                    post(Environment.getProperty("libraryurl")+Endpoints.LOGIN).prettyPeek();
             response.then().statusCode(200);
         }
         return response;
