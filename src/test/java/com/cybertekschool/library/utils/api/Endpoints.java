@@ -9,5 +9,7 @@ public interface Endpoints {
     String ADD_BOOK = "/add_book";
     String GET_BOOK_CATEGORIES = "/get_book_categories";
     String DELETE_BOOK = "/delete_book/{id}";
+    String UPDATE_BOOK = "/update_book";
     String DASHBOARD_STATS= "/dashboard_stats";
+
 }
