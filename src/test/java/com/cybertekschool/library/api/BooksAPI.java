@@ -16,8 +16,12 @@ import static com.cybertekschool.library.utils.api.Endpoints.ADD_BOOK;
 import static io.restassured.RestAssured.given;
 
 public class BooksAPI {
+<<<<<<< HEAD
 
 
+=======
+    //deneme
+>>>>>>> ef8671c63121601dee1e74f36c7b4f524151318b
     public Response addBook(Map<String, String> book) {
         // get a token
         AuthenticationUtility authenticationUtility = new LibrarianAuthenticationUtility();
