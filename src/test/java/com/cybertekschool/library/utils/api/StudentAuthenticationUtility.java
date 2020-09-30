@@ -22,7 +22,7 @@ public class StudentAuthenticationUtility implements AuthenticationUtility {
                     formParam("email", username).
                     formParam("password", password).
                     log().all().
-                when().
+                    when().
                     post(Environment.getProperty("libraryurl")+Endpoints.LOGIN).prettyPeek();
             response.then().statusCode(200);
         }
@@ -32,7 +32,7 @@ public class StudentAuthenticationUtility implements AuthenticationUtility {
     @Override
     public String getToken() {
         if (token == null) {
-            token = response.jsonPath().getString("token");
+            token = getLoginResponse().jsonPath().getString("token");
         }
         return token;
     }
@@ -40,7 +40,7 @@ public class StudentAuthenticationUtility implements AuthenticationUtility {
     @Override
     public String getRedirectUrl() {
         if (redirectUrl == null) {
-            redirectUrl = response.jsonPath().getString("redirect_uri");
+            redirectUrl = getLoginResponse().jsonPath().getString("redirect_uri");
         }
         return redirectUrl;
     }
