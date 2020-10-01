@@ -1,16 +1,10 @@
 package com.cybertekschool.library.step_definitions.API;
 
-import com.cybertekschool.library.utils.api.Endpoints;
-import com.cybertekschool.library.utils.api.LibrarianAuthenticationUtility;
-import com.cybertekschool.library.utils.common.Environment;
-import com.google.gson.Gson;
+import com.cybertekschool.library.api.BooksAPI;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import io.restassured.RestAssured;
-import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.junit.Assert;
-
 import java.util.Map;
 
 public class EditBookStepDefs {
@@ -19,16 +13,7 @@ public class EditBookStepDefs {
 
     @Given("the user as a librarian makes patch request with using update_book end point")
     public void the_user_as_a_librarian_makes_patch_request_with_using_update_book_end_point(Map<String, Object> updateBook) {
-        Gson gson = new Gson();
-        String json = gson.toJson(updateBook);
-
-        String token = new LibrarianAuthenticationUtility().getToken();
-
-        pageEditResponse = RestAssured.given().accept(ContentType.JSON)
-                .and().contentType("application/json")
-                .header("x-library-token", token)
-                .and().body(json)
-                .when().patch(Environment.getProperty("libraryurl") + Endpoints.UPDATE_BOOK);
+        pageEditResponse = new BooksAPI().editBook(updateBook);
 
     }
 

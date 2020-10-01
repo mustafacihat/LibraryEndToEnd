@@ -14,5 +14,3 @@ Feature: Edit book on api
 
 
     Then  user should be able to get "The book has been updated." in response body
-
-

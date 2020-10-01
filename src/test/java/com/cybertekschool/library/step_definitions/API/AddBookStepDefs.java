@@ -1,5 +1,6 @@
 package com.cybertekschool.library.step_definitions.API;
 
+import com.cybertekschool.library.api.BooksAPI;
 import com.cybertekschool.library.utils.api.Endpoints;
 import com.cybertekschool.library.utils.api.LibrarianAuthenticationUtility;
 import com.cybertekschool.library.utils.common.Environment;
@@ -16,8 +17,8 @@ import java.util.Map;
 public class AddBookStepDefs {
     Response pageAddResponse;
     @Given("the user as a librarian makes post request with using add_book end point")
-    public void the_user_as_a_librarian_makes_post_request_with_using_add_book_end_point(Map<String, Object> addBook) {
-        Gson gson = new Gson();
+    public void the_user_as_a_librarian_makes_post_request_with_using_add_book_end_point(Map<String, String> addBook) {
+       /* Gson gson = new Gson();
         String json = gson.toJson(addBook);
 
         String token = new LibrarianAuthenticationUtility().getToken();
@@ -26,7 +27,13 @@ public class AddBookStepDefs {
                 .and().contentType("application/json")
                 .header("x-library-token", token)
                 .and().body(json)
-                .when().post(Environment.getProperty("libraryurl") + Endpoints.ADD_BOOK);
+                .when().post(Environment.getProperty("libraryurl") + Endpoints.ADD_BOOK);*/
+
+        BooksAPI booksAPI = new BooksAPI();
+
+        pageAddResponse = booksAPI.addBook(addBook);
+
+
     }
 
     @Then("user should be able to get {string} in response body for add book")
