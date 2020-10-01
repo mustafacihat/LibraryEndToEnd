@@ -44,6 +44,12 @@ public WebElement actualyear;
 @FindBy(xpath = "(//tbody//tr//td)[1]")
 public WebElement studentBooks;
 
+@FindBy(css = ".form-control.input-sm.input-small.input-inline")
+public WebElement searchBox;
+
+@FindBy(xpath = "//tbody//tr//td[3] ")
+public WebElement correspondedBook;
+
 
 
 
