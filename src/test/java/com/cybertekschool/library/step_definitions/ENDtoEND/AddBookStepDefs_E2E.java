@@ -30,18 +30,6 @@ public class AddBookStepDefs_E2E {
 
     }
 
-    @Test
-    public void test(){
-        Map<String,String> book = new LibraryUserUtility().createBook();
-
-        System.out.println(book.toString());
-
-        Response response = new BooksAPI().addBook(book);
-        name = response.path("name");
-        System.out.println("name = " + name);
-    }
-
-
     @Given("the user search corresponding book name")
     public void the_user_search_corresponding_book_name() throws InterruptedException {
         new BooksPage().searchBox.sendKeys(name+ Keys.ENTER);

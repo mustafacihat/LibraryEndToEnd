@@ -29,7 +29,7 @@ public class BorrowingBooksAPI {
         Response response = RestAssured.given().accept(ContentType.JSON)
                 .header("x-library-token", new StudentAuthenticationUtility().getToken())
                 .get(Environment.getProperty("libraryurl")+ Endpoints.AVAILABLE_BOOKS);
-        //response.prettyPrint();
+        response.prettyPrint();
 
          String i = response.path("id[0]");
 

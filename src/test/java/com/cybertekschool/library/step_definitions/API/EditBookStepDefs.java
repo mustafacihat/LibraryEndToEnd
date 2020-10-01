@@ -1,6 +1,7 @@
 package com.cybertekschool.library.step_definitions.API;
 
 import com.cybertekschool.library.api.BooksAPI;
+import com.cybertekschool.library.utils.common.LibraryUserUtility;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.restassured.response.Response;
@@ -11,10 +12,14 @@ public class EditBookStepDefs {
 
     Response pageEditResponse;
 
-    @Given("the user as a librarian makes patch request with using update_book end point")
-    public void the_user_as_a_librarian_makes_patch_request_with_using_update_book_end_point(Map<String, Object> updateBook) {
-        pageEditResponse = new BooksAPI().editBook(updateBook);
 
+    @Given("the user as a librarian makes patch request with using update_book end point")
+    public void the_user_as_a_librarian_makes_patch_request_with_using_update_book_end_point() {
+        Map<String, Object> editBookInfo = LibraryUserUtility.editableBookInfo();
+
+        pageEditResponse = new BooksAPI().editBook(editBookInfo);
+
+        pageEditResponse.prettyPrint();
     }
 
 
