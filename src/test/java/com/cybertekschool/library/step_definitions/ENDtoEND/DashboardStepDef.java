@@ -30,8 +30,9 @@ public class DashboardStepDef {
 
 
     @Then("the informations getting from API and UI should be matched")
-    public void the_informations_getting_from_api_and_ui_should_be_matched() {
+    public void the_informations_getting_from_api_and_ui_should_be_matched() throws InterruptedException {
 
+        Thread.sleep(3000);
         DashboardPage dashboardPage = new DashboardPage();
         String bookCountUI = dashboardPage.bookCount.getText();
         String userCountUI = dashboardPage.userCount.getText();
