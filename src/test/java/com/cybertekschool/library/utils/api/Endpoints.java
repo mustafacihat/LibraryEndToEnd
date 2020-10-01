@@ -10,11 +10,8 @@ public interface Endpoints {
     String GET_BOOK_CATEGORIES = "/get_book_categories";
     String DELETE_BOOK = "/delete_book/{id}";
     String UPDATE_BOOK = "/update_book";
-<<<<<<< HEAD
     String AVAILABLE_BOOKS= "/get_book_list_for_borrowing";
     String DASHBOARD_STATS ="/dashboard_stats";
-=======
-    String DASHBOARD_STATS= "/dashboard_stats";
 
->>>>>>> ef8671c63121601dee1e74f36c7b4f524151318b
+
 }
