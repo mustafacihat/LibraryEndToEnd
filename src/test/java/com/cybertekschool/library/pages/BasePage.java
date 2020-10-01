@@ -25,7 +25,6 @@ public abstract class  BasePage {
     public WebElement Dashboard;
 
     @FindBy(xpath = "//span[text()='Borrowing Books']")
-
     public WebElement borrowingBooks;
 
     public BasePage() {

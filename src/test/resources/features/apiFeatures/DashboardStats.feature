@@ -1,4 +1,4 @@
-@Dashboard
+@Dashboard-api
 Feature: dashboard stats on api
 
 
