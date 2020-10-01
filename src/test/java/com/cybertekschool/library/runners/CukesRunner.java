@@ -16,7 +16,7 @@ import org.junit.runner.RunWith;
         glue = "com/cybertekschool/library/step_definitions",
         dryRun = false,
 
-        tags = "@addbook-api"
+        tags = "@editbook-api"
 
 )
 public class CukesRunner {

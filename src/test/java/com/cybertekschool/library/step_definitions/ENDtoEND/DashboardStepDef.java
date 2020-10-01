@@ -2,6 +2,8 @@ package com.cybertekschool.library.step_definitions.ENDtoEND;
 
 import com.cybertekschool.library.pages.DashboardPage;
 import static com.cybertekschool.library.utils.api.Endpoints.*;
+
+import com.cybertekschool.library.utils.api.Endpoints;
 import com.cybertekschool.library.utils.api.LibrarianAuthenticationUtility;
 import com.cybertekschool.library.utils.ui.Driver;
 import io.cucumber.java.en.Then;
@@ -36,7 +38,7 @@ public class DashboardStepDef {
 
         Response response = RestAssured.given().accept(ContentType.JSON)
                 .and().header("x-library-token", token)
-                .when().get(DASHBOARD_STATS);
+                .when().get(Endpoints.DASHBOARD_STATS);
 
         response.prettyPrint();
 
