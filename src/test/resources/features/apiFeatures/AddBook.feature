@@ -12,8 +12,6 @@ Feature: Add book on api
       | book_category_id | 2                                   |
       | description      | SAVAS ASK IHTILAL ENTRIKA ESMERALDA |
 
-
-
     Then  user should be able to get "The book has been created." in response body for add book
 
 

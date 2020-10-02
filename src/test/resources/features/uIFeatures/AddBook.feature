@@ -1,3 +1,5 @@
+@ELW-81
+@addbook
 Feature: Librarian can add book
   @addBook
   Scenario: User should be able to add book
