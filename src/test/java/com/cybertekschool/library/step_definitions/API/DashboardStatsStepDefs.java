@@ -30,6 +30,7 @@ public class DashboardStatsStepDefs {
 
         for (int i = 0; i < titles.size(); i++) {
             Assert.assertTrue(titles.contains(titleList.get(i)));
+            
         }
     }
 
