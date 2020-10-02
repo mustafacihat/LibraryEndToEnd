@@ -16,7 +16,7 @@ import org.junit.runner.RunWith;
         glue = "com/cybertekschool/library/step_definitions",
         dryRun = false,
 
-        tags = "@login-api"
+        tags = "@ELW-130"
 
 
 )
