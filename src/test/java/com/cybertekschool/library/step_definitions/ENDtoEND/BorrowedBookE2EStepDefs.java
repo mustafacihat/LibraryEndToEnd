@@ -2,21 +2,11 @@ package com.cybertekschool.library.step_definitions.ENDtoEND;
 
 import com.cybertekschool.library.api.DashboardStatsAPI;
 import com.cybertekschool.library.pages.BookManagementPage;
-import com.cybertekschool.library.pages.LibraryLoginPage;
-import com.cybertekschool.library.utils.api.Endpoints;
-import com.cybertekschool.library.utils.api.StudentAuthenticationUtility;
-import com.cybertekschool.library.utils.common.Encoder;
-import com.cybertekschool.library.utils.common.Environment;
-import com.cybertekschool.library.utils.ui.Driver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import io.restassured.RestAssured;
-import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.junit.Assert;
-import org.junit.Test;
 
-import java.util.List;
 
 public class BorrowedBookE2EStepDefs {
 
@@ -24,7 +14,7 @@ public class BorrowedBookE2EStepDefs {
     int dashboard1;
     int dashboard2;
 
-    @Test
+    /*@Test
     public void test() throws InterruptedException {
 
         Driver.getDriver().get(Environment.getProperty("url"));
@@ -35,7 +25,7 @@ public class BorrowedBookE2EStepDefs {
         Thread.sleep(3000);
         String s = bookManagementPage.borrowedVerification();
         System.out.println(s);
-    }
+    }*/
 
     @Given("send request to get dashboardStats before borrowing book on api")
     public void send_request_to_get_dashboard_stats_before_borrowing_book_on_api() {

@@ -1,6 +1,6 @@
 package com.cybertekschool.library.pages;
 
-import com.cybertekschool.library.utils.ui.BrowserUtils;
+
 import com.cybertekschool.library.utils.ui.Driver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -126,11 +126,11 @@ public class BookManagementPage extends BasePage {
             bookName = Driver.getDriver().findElement(By.xpath("//tbody/tr[" + i + "]/td[3]")).getText();
 
 
-            try{
+            try {
                 if (thebookbarrowedverificiationtext.isDisplayed()) {
                     break;
                 }
-            }catch(Exception e){
+            } catch (Exception e) {
                 continue;
             }
 
