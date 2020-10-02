@@ -1,5 +1,6 @@
 package com.cybertekschool.library.pages;
 
+import com.cybertekschool.library.utils.ui.BrowserUtils;
 import com.cybertekschool.library.utils.ui.Driver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -12,22 +13,22 @@ import java.util.List;
 
 public class BookManagementPage extends BasePage {
 
-    public BookManagementPage() {PageFactory.initElements(Driver.getDriver(), this);
+    public BookManagementPage() {
+        PageFactory.initElements(Driver.getDriver(), this);
     }
 
-    @FindBy (xpath = "//a[@class='btn btn-primary btn-sm  ']")
+    @FindBy(xpath = "//a[@class='btn btn-primary btn-sm  ']")
     public WebElement borrowbookbutton;
 
-    @FindBy ( xpath  = "//a[@class='btn btn-primary btn-sm  ']/../..")
+    @FindBy(xpath = "//a[@class='btn btn-primary btn-sm  ']/../..")
     public WebElement bookrow;
 
 
-
-    @FindBy (css = "select[name='tbl_books_length']")
+    @FindBy(css = "select[name='tbl_books_length']")
 
     public WebElement recordsDropDown;
 
-    @FindBy(css  = "//a[@class='btn btn-primary btn-sm  ']")
+    @FindBy(css = "//a[@class='btn btn-primary btn-sm  ']")
     public WebElement book;
 
     @FindBy(xpath = "//div[@class='toast-message']")
@@ -74,7 +75,7 @@ public class BookManagementPage extends BasePage {
     @FindBy(id = "book_categories")
     public WebElement mainCategoryElement;
 
-    @FindBy (xpath = "//a[@class='btn btn-primary btn-sm ']")
+    @FindBy(xpath = "//a[@class='btn btn-primary btn-sm ']")
     public WebElement returnBook;
 
     @FindBy(xpath = "//div[@class='toast-message']")
@@ -83,6 +84,8 @@ public class BookManagementPage extends BasePage {
     @FindBy(xpath = "//td[2]")
     public List<WebElement> borrowedbookList;
 
+    @FindBy(xpath = "//thead/tr/th[7]")
+    public WebElement borrowedBy;
 
 
     public WebElement editBook(String book) {
@@ -99,13 +102,44 @@ public class BookManagementPage extends BasePage {
     }
 
 
-
     //For showing all books on the page select dropdown list
-    public void recordSelector(String value){
+    public void recordSelector(String value) {
         Select select = new Select(recordsDropDown);
 
 
         select.selectByValue(value);
+    }
+
+    public String borrowedVerification() throws InterruptedException {
+
+
+        //recordSelector("500");
+
+        Thread.sleep(2000);
+        borrowedBy.click();
+
+        Thread.sleep(1000);
+        String bookName = "";
+        for (int i = 1; i <= 500; i++) {
+
+            Driver.getDriver().findElement(By.xpath("//tbody/tr[" + i + "]/td[1]")).click();
+            bookName = Driver.getDriver().findElement(By.xpath("//tbody/tr[" + i + "]/td[3]")).getText();
+
+
+            try{
+                if (thebookbarrowedverificiationtext.isDisplayed()) {
+                    break;
+                }
+            }catch(Exception e){
+                continue;
+            }
+
+
+        }
+
+        return bookName;
+
+
     }
 
 
