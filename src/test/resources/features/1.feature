@@ -2,7 +2,7 @@
 Feature: 
 
 	#Adding book using API end point as a librarian. (Positive Scenario)
-	@ELW-114 @ELW-131
+	@ELW-114 @ELW-131 @ELW-111
 	Scenario: Verify that as a librarian, user can add book using end point
 		Scenario: Add book as a librarian on api
 		    Given the user as a librarian makes post request with using add_book end point
