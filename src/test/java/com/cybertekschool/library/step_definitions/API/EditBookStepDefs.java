@@ -11,6 +11,7 @@ import java.util.Map;
 public class EditBookStepDefs {
 
     Response pageEditResponse;
+    Response editStudentResponse;
 
 
     @Given("the user as a librarian makes patch request with using update_book end point")
@@ -28,4 +29,24 @@ public class EditBookStepDefs {
 
         Assert.assertEquals(message, pageEditResponse.path("message"));
     }
+
+    @Given("the user as a student makes patch request with using update_book end point")
+    public void the_user_as_a_student_makes_patch_request_with_using_update_book_end_point() {
+        BooksAPI booksAPI = new BooksAPI();
+
+        Map<String, Object> editBook = LibraryUserUtility.editableBookInfo();
+
+        editStudentResponse = booksAPI.editBookAsStudent(editBook);
+
+
+
+    }
+
+
+
+    @Then("status code should be {int} for student")
+    public void status_code_should_be_for_student(Integer statusCode) {
+        Assert.assertEquals((int) statusCode,editStudentResponse.statusCode());
+    }
+
 }

@@ -16,3 +16,8 @@ Feature: Add book on api
 
     Then  user should be able to get "The book has been created." in response body for add book
 
+
+    Scenario: Add book as a student on api negative test
+      Given the user as a student makes post request with using add_book end point
+      Then status code should be 403
+

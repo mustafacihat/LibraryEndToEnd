@@ -3,6 +3,7 @@ package com.cybertekschool.library.api;
 import com.cybertekschool.library.utils.api.AuthenticationUtility;
 import com.cybertekschool.library.utils.api.Endpoints;
 import com.cybertekschool.library.utils.api.LibrarianAuthenticationUtility;
+import com.cybertekschool.library.utils.api.StudentAuthenticationUtility;
 import com.cybertekschool.library.utils.common.Environment;
 import com.google.gson.Gson;
 import io.restassured.RestAssured;
@@ -48,4 +49,35 @@ public class BooksAPI {
 
          return response;
      }
+
+    public Response addBookAsStudent(Map<String, String> book) {
+        // get a token
+        AuthenticationUtility authenticationUtility = new StudentAuthenticationUtility();
+        String studentToken = authenticationUtility.getToken();
+        Response response = given().
+                header("x-library-token", studentToken).
+                formParams(book).
+                log().all().
+                when().
+                post(Environment.getProperty("libraryurl")+ADD_BOOK).
+                prettyPeek();
+        return response;
+    }
+
+    public Response editBookAsStudent(Map<String, Object> updateBook){
+        Gson gson = new Gson();
+        String json = gson.toJson(updateBook);
+
+        AuthenticationUtility authenticationUtility = new StudentAuthenticationUtility();
+
+        String token = authenticationUtility.getToken();
+
+        Response response = RestAssured.given().accept(ContentType.JSON)
+                .and().contentType("application/json")
+                .header("x-library-token", token)
+                .and().body(json)
+                .when().patch(Environment.getProperty("libraryurl") + Endpoints.UPDATE_BOOK).prettyPeek();
+
+        return response;
+    }
 }

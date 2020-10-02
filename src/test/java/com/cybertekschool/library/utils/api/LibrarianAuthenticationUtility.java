@@ -44,4 +44,15 @@ public class LibrarianAuthenticationUtility implements AuthenticationUtility {
         }
         return redirectUrl;
     }
+
+
+    public Response getResponseForUsers(String username, String password) {
+            response = given().
+                    formParam("email", username).
+                    formParam("password", password).
+                    log().all().
+                    when().
+                    post(Environment.getProperty("libraryurl")+Endpoints.LOGIN).prettyPeek();
+        return response;
+    }
 }
