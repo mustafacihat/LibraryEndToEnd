@@ -21,16 +21,16 @@ public class AddBookStepDefs {
 
     @Given("the user as a librarian makes post request with using add_book end point")
     public void the_user_as_a_librarian_makes_post_request_with_using_add_book_end_point(Map<String, String> addBook) {
-       /* Gson gson = new Gson();
-        String json = gson.toJson(addBook);
-
-        String token = new LibrarianAuthenticationUtility().getToken();
-
-        pageAddResponse = RestAssured.given().accept(ContentType.JSON)
-                .and().contentType("application/json")
-                .header("x-library-token", token)
-                .and().body(json)
-                .when().post(Environment.getProperty("libraryurl") + Endpoints.ADD_BOOK);*/
+//        Gson gson = new Gson();
+//        String json = gson.toJson(addBook);
+//
+//        String token = new LibrarianAuthenticationUtility().getToken();
+//
+//        pageAddResponse = RestAssured.given().accept(ContentType.JSON)
+//                .and().contentType("application/json")
+//                .header("x-library-token", token)
+//                .and().body(json)
+//                .when().post(Environment.getProperty("libraryurl") + Endpoints.ADD_BOOK);
 
         BooksAPI booksAPI = new BooksAPI();
 

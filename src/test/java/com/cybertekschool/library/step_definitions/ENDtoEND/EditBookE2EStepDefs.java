@@ -23,6 +23,7 @@ public class EditBookE2EStepDefs {
         pageEditResponse = new BooksAPI().editBook(editBookInfo);
 
         pageEditResponse.prettyPrint();
+        
     }
 
     @Given("the user search corresponding book name for edit")
