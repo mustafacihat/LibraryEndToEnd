@@ -1,4 +1,5 @@
 @ELW-139
+@smoke1
 Feature: 
 
 	
